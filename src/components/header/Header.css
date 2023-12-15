@@ -1,0 +1,17 @@
+.header {
+    padding: 25px 0 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 60px;
+    font-weight: bolder;
+}
+
+.sub-title {
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: calc(1.1 * 0.1em);
+}
