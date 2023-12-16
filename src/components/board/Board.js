@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import "./Board.css";
 import { solver } from "./SudokuSolver";
 import { isInitialValid } from "./InitialCheck";
+import ninja_left from "./ninja_left.png";
+import ninja_right from "./ninja_right.png";
 
 // Initial Game Board (-1 = Empty)
 const initial = [
@@ -30,6 +32,11 @@ export default function Board() {
     var val = parseInt(e.target.value) || -1;
     var board = getDeepCopy(gameBoard);
     if (val === -1 || (val >= 1 && val <= 9)) board[row][col] = val;
+
+    const inputCell = document.getElementById(`cell-${row}-${col}`);
+    if (board[row][col] !== -1) inputCell.style.backgroundColor = "#3b9cdc";
+    else inputCell.style.backgroundColor = "#dae1ee";
+
     setGameBoard(board);
   }
 
@@ -68,43 +75,53 @@ export default function Board() {
 
   return (
     <div className="board">
-      <div className="board-box">
-        <table>
-          <tbody>
-            {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((row, rowIdx) => (
-              <tr
-                key={rowIdx}
-                className={row === 2 || row === 5 ? "boxGap-row-wise" : ""}
-              >
-                {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((col, colIdx) => (
-                  <td
-                    key={rowIdx + colIdx}
-                    className={col === 2 || col === 5 ? "boxGap-col-wise" : ""}
-                  >
-                    <input
-                      className="cell"
-                      id={"cell-" + rowIdx + "-" + colIdx}
-                      value={
-                        gameBoard[row][col] === -1 ? "" : gameBoard[row][col]
-                      }
-                      onChange={(e) => onInputChange(e, row, col)}
-                      disabled={initial[row][col] !== -1}
-                    />
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="img-left">
+        <img src={ninja_left} alt="" />
       </div>
+      <div className="center-game-board">
+        <div className="board-box">
+          <table>
+            <tbody>
+              {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((row, rowIdx) => (
+                <tr
+                  key={rowIdx}
+                  className={row === 2 || row === 5 ? "boxGap-row-wise" : ""}
+                >
+                  {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((col, colIdx) => (
+                    <td
+                      key={rowIdx + colIdx}
+                      className={
+                        col === 2 || col === 5 ? "boxGap-col-wise" : ""
+                      }
+                    >
+                      <input
+                        className="cell"
+                        id={"cell-" + rowIdx + "-" + colIdx}
+                        value={
+                          gameBoard[row][col] === -1 ? "" : gameBoard[row][col]
+                        }
+                        onChange={(e) => onInputChange(e, row, col)}
+                        disabled={initial[row][col] !== -1}
+                      />
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
 
-      <div className="btns">
-        <div className="solve-btn" onClick={solveSudoku}>
-          Solve
+        <div className="btns">
+          <div className="solve-btn" onClick={solveSudoku}>
+            Solve
+          </div>
+          <div className="clear-btn" onClick={clearSudoku}>
+            Clear
+          </div>
         </div>
-        <div className="clear-btn" onClick={clearSudoku}>
-          Clear
-        </div>
+      </div>
+      <div className="img-right">
+        <img src={ninja_right} alt="" />
       </div>
     </div>
   );

@@ -1,8 +1,29 @@
 .board {
     display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 4vh;
+    height: calc(88vh - 60px);
+}
+
+.img-left, .img-right {
+    width: 30vw;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px;
+    justify-content: center;
+}
+
+.img-left img, .img-right img {
+    height: 60vh;
+    width: 80%;
+}
+
+.center-game-board {
+    display: flex;
+    flex-direction: column;
+    gap: 4vh;
 }
 
 .board-box {
@@ -16,7 +37,6 @@ table {
 }
 
 td {
-    padding: 0;
     background-color: white;
 }
 
@@ -25,11 +45,15 @@ td {
     height: 45px;
     font-size: 18px;
     text-align: center;
-    padding: 0;
     border: 1px solid black;
     background-color: #dae1ee;
     margin: 2px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.cell:focus {
+    caret-color: transparent;
 }
 
 .boxGap-row-wise {
@@ -41,22 +65,20 @@ td {
 }
 
 .btns {
-    margin-top: 40px;
     display: flex;
     gap: 6vw;
     height: 30px;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .solve-btn, .check-btn, .clear-btn {
     padding: 8px 18px;
     font-weight: bold;
     font-size: 18px;
-    border: 2px solid #3689c7;
+    border: 2px solid #117fc6;
     border-radius: 5px;
     color: white;
-    /* background-color: #3689c7; */
     background-color: #117fc6;
 }
 
