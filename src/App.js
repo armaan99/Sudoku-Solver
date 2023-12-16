@@ -1,12 +1,12 @@
 import "./App.css";
-import GameBoard from "./components/game_board/GameBoard";
+import Board from "./components/board/Board";
 import Header from "./components/header/Header";
 
 function App() {
   return (
     <div className="App">
       <Header></Header>
-      <GameBoard></GameBoard>
+      <Board></Board>
     </div>
   );
 }

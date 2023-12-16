@@ -1,0 +1,66 @@
+.board {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.board-box {
+    background-color: white;
+    padding: 16px;
+    border-radius: 10px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td {
+    padding: 0;
+    background-color: white;
+}
+
+.cell {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+    text-align: center;
+    padding: 0;
+    border: 1px solid black;
+    background-color: #dae1ee;
+    margin: 2px;
+    border-radius: 5px;
+}
+
+.boxGap-row-wise {
+    border-bottom: 8px solid white;
+}
+
+.boxGap-col-wise {
+    border-right: 8px solid white;
+}
+
+.btns {
+    margin-top: 40px;
+    display: flex;
+    gap: 6vw;
+    height: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.solve-btn, .check-btn, .clear-btn {
+    padding: 8px 18px;
+    font-weight: bold;
+    font-size: 18px;
+    border: 2px solid #3689c7;
+    border-radius: 5px;
+    color: white;
+    /* background-color: #3689c7; */
+    background-color: #117fc6;
+}
+
+.solve-btn:hover, .check-btn:hover, .clear-btn:hover {
+    cursor: pointer;
+    border: 2px solid white;
+}
