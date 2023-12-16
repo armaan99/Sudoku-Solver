@@ -29,7 +29,7 @@ export default function Board() {
 
   // To take input in every cell
   function onInputChange(e, row, col) {
-    var val = parseInt(e.target.value) || -1;
+    var val = parseInt(e.target.value) % 10 || -1;
     var board = getDeepCopy(gameBoard);
     if (val === -1 || (val >= 1 && val <= 9)) board[row][col] = val;
 
